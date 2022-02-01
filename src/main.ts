@@ -14,7 +14,15 @@ async function main() {
   });
 
   function createAlert(text: string) {
-    fetch(`https://pubsub.rycont.ninja/pub/scanner/${text}`);
+    fetch(`https://pubsub.rycont.ninja/pub/scanner/`, {
+      method: "POST",
+      body: JSON.stringify({
+        data: text,
+      }),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    });
 
     const alertElement = document.createElement("div");
     alertElement.classList.add("alert");
