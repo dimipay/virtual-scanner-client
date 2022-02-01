@@ -1,0 +1,51 @@
+body {
+  margin: 0px;
+}
+
+video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    bottom: -50px;
+  }
+  to {
+    opacity: 1;
+    bottom: 30px;
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+    bottom: 30px;
+  }
+  to {
+    opacity: 0;
+    bottom: -50px;
+  }
+}
+
+.alert {
+  color: white;
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: calc(100vw - 60px);
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  animation: appear 1s cubic-bezier(0, 1, 0, 1) forwards;
+  word-break: keep-all;
+}
+
+.alert.disappear {
+  animation: disappear 1s cubic-bezier(0, 1, 0, 1) forwards;
+}

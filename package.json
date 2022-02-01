@@ -1,0 +1,18 @@
+{
+  "name": "emulate-barcode-reader-client",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2"
+  },
+  "dependencies": {
+    "@zxing/library": "^0.19.1",
+    "html5-qrcode": "^2.1.6",
+    "jsqr": "^1.4.0"
+  }
+}
