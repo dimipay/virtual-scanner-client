@@ -5,8 +5,6 @@ const videoInputDevices = await codeReader.listVideoInputDevices();
 const selectedDeviceId =
   videoInputDevices[videoInputDevices.length - 1].deviceId;
 
-const socket = new WebSocket("ws://socketmirror.rycont.ninja");
-
 codeReader.decodeFromVideoDevice(selectedDeviceId, "video", (result) => {
   if (result) {
     console.log("ABB");
@@ -15,12 +13,7 @@ codeReader.decodeFromVideoDevice(selectedDeviceId, "video", (result) => {
 });
 
 function createAlert(text: string) {
-  socket.send(
-    JSON.stringify({
-      type: "scanned",
-      data: text,
-    })
-  );
+  fetch(`https://pubsub.rycont.ninja/pub/scanner/${text}`);
 
   const alertElement = document.createElement("div");
   alertElement.classList.add("alert");
