@@ -8,7 +8,7 @@ async function main() {
 
   codeReader.decodeFromVideoDevice(selectedDeviceId, "video", (result) => {
     if (result) {
-      console.log("ABB");
+      navigator.vibrate(50);
       createAlert(result.getText());
     }
   });
